@@ -1,0 +1,328 @@
+// Variables
+$primary-color: #00945f
+$secondary-color: #f7941d
+$text-gray: #888888
+$white: #fff
+$dark-gray: #666
+
+// Mixins
+=flex-center
+  display: flex
+  align-items: center
+  justify-content: center
+
+=clip-path($path)
+  clip-path: $path
+  -webkit-clip-path: $path
+
+// Reset styles
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+  font-family: Arial, sans-serif
+
+// Main container
+.container
+  max-width: 1300px
+  margin: 0 auto
+  padding: 0 15px
+
+// Header
+header
+  padding: 20px 0
+  background-color: $white
+  
+  .logo
+    padding: 20px 0
+
+.paragraph
+  color: $text-gray
+  line-height: 1.6
+  margin: 0 auto
+  text-align: left
+  font-weight: 400
+
+// Hero section
+.hero
+  position: relative
+  height: 500px
+  overflow: hidden
+  margin-bottom: 30px
+  
+  &-image
+    position: absolute
+    top: 0
+    left: 0
+    width: 60%
+    height: 100%
+    background: url("/images/banner-img.webp") no-repeat center left
+    background-size: cover
+    +clip-path(polygon(0 0, 100% 0, 85% 100%, 0 100%))
+  
+  &-overlay
+    position: absolute
+    top: 0
+    right: 0
+    width: 50%
+    height: 100%
+    background-color: #2a7d63
+    +clip-path(polygon(15% 0, 100% 0, 100% 100%, 0 100%))
+    +flex-center
+    
+    h1
+      color: $white
+      font-size: 36px
+      text-align: center
+      padding: 0 40px
+      line-height: 1.3
+
+// Tagline section
+.tagline
+  text-align: center
+  margin: 40px 0
+  
+  h2
+    color: $primary-color
+    font-size: 26px
+    margin-bottom: 10px
+    font-weight: 600
+
+// CTA Button
+.cta-button
+  display: flex
+  justify-content: center
+  margin: 30px 0
+  
+  a
+    display: inline-block
+    background-color: $secondary-color
+    color: $white
+    padding: 10px 30px
+    text-decoration: none
+    font-weight: bold
+    border-radius: 2px
+    transition: all 0.2s ease
+    
+    &:hover
+      background-color: darken($secondary-color, 10%)
+
+// Advantage section
+.advantage
+  text-align: center
+  margin: 60px 0
+  
+  h2
+    color: $primary-color
+    font-size: 26px
+    margin-bottom: 20px
+    font-weight: 600
+
+hr
+  width: 65px
+  margin: 20px auto
+  border: 1px solid $primary-color
+
+// Features
+.features
+  display: flex
+  align-items: center
+  flex-wrap: wrap
+  margin: 40px -15px
+
+.feature
+  flex: 1
+  min-width: 300px
+  padding: 0 15px
+  margin-bottom: 30px
+  
+  h3
+    color: $primary-color
+    font-size: 22px
+    margin-bottom: 15px
+    text-align: left
+    font-weight: 500
+  
+  a
+    color: #759B22
+    text-decoration: none
+    display: inline-flex
+    align-items: center
+    
+    &:after
+      content: ">"
+      margin-left: 5px
+
+.feature-divider
+  width: 1px
+  height: 100px
+  background-color: #c0c0c0
+  margin: 0 30px
+  align-self: center
+
+// Bank info
+.bank-info
+  background-color: #EBF7F5
+  margin: 40px 0
+  
+  h3
+    background-color: $primary-color
+    color: $white
+    text-align: center
+    padding: 20px
+    font-weight: 500
+  
+  p
+    padding: 30px 60px
+
+// Testimonials
+.testimonials
+  display: flex
+  flex-wrap: wrap
+  margin: 40px -15px
+
+.testimonial
+  flex: 1
+  min-width: 300px
+  padding: 15px
+  text-align: center
+  margin-bottom: 30px
+  
+  &-image
+    width: 100px
+    height: 100px
+    border-radius: 50%
+    margin: 0 auto 15px
+    background-color: #f0f0f0
+  
+  &-info
+    padding: 0 120px
+  
+  &-info1
+    padding: 0 30px
+  
+  &-content
+    position: relative
+    
+    &:before
+      content: ""
+      position: absolute
+      top: 0px
+      left: -15px
+      width: 100px
+      height: 50px
+      background-image: url(../images/quotes.webp)
+      background-size: contain
+      background-repeat: no-repeat
+      z-index: -1
+      opacity: 0.5
+  
+  blockquote
+    color: $dark-gray
+    font-style: italic
+    margin-bottom: 15px
+    line-height: 1.6
+  
+  &-author
+    color: $primary-color
+    font-weight: bold
+    line-height: 1.6
+
+// Footer
+footer
+  padding: 20px 0
+  font-size: 12px
+  color: $dark-gray
+  border-top: 2px solid $primary-color
+
+.footer
+  &-top
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+    margin-bottom: 20px
+  
+  &-info
+    font-size: 11px
+    line-height: 1.6
+    
+    a, p
+      color: $text-gray
+  
+  &-bottom
+    display: flex
+    justify-content: space-between
+    padding-top: 10px
+    font-size: 11px
+    
+    a
+      color: black
+      text-decoration: none
+
+.social-links
+  padding: 20px 0
+  display: flex
+  gap: 5px
+  
+  a
+    +flex-center
+    width: 30px
+    height: 30px
+    background-color: #ddd
+    border-radius: 2px
+  
+  img
+    width: 100%
+
+// Media queries
+@media (max-width: 768px)
+  .hero
+    height: 400px
+    
+    &-overlay
+      display: none
+    
+    &-image
+      width: 100%
+      clip-path: none
+      -webkit-clip-path: none
+      background-position: 30% center
+  
+  .logo
+    padding: 5px 0
+    
+    img
+      width: 60%
+  
+  .features, .testimonials
+    flex-direction: column
+  
+  .feature, .testimonial
+    min-width: 100%
+  
+  .testimonial
+    &-info, &-info1
+      padding: 0 40px
+  
+  .footer-top, .footer-bottom
+    flex-direction: column
+    gap: 10px
+  
+  .feature-divider
+    width: 80%
+    height: 1px
+    margin: 30px auto
+  
+  .sm-d-none
+    display: none
+  
+  .sm-d-block
+    display: block
+
+@media only screen and (min-width: 768px)
+  .d-lg-none
+    display: none
+
+// Utility classes
+.green-text
+  color: $primary-color
